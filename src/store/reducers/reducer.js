@@ -23,13 +23,13 @@ export default function(state = initialState, action) {
         case CounterTypes.ADD:
             return {
                 ...state,
-                counter: state.counter + 5
+                counter: state.counter + action.payload.value
             };
 
         case CounterTypes.SUBTRACT:
             return {
                 ...state,
-                counter: state.counter - 5
+                counter: state.counter - action.payload.value
             };
 
         default:

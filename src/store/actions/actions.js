@@ -8,10 +8,16 @@ export const decrement = () => ({
     type: CounterTypes.DECREMENT
 });
 
-export const add = () => ({
-    type: CounterTypes.ADD
+export const add = (value) => ({
+    type: CounterTypes.ADD,
+    payload: {
+        value
+    }
 });
 
-export const subtract = () => ({
-    type: CounterTypes.SUBTRACT
+export const subtract = (value) => ({
+    type: CounterTypes.SUBTRACT,
+    payload: {
+        value
+    }
 });

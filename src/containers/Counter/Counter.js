@@ -29,8 +29,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     onIncrementCounter: () => dispatch(counterActions.increment()),
     onDecrementCounter: () => dispatch(counterActions.decrement()),
-    onAddCounter: () => dispatch(counterActions.add()),
-    onSubtractCounter: () => dispatch(counterActions.subtract())
+    onAddCounter: () => dispatch(counterActions.add(5)),
+    onSubtractCounter: () => dispatch(counterActions.subtract(5))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
