@@ -14,7 +14,7 @@ const Counter = ({
     onDecrementCounter, 
     onAddCounter, 
     onSubtractCounter,
-    onStoreResult,
+    onStartStoreResult,
     onDeleteResult
 }) => (
     <div>
@@ -27,7 +27,7 @@ const Counter = ({
 
         <hr />
 
-        <button onClick={ () => onStoreResult(counter) }>
+        <button onClick={ () => onStartStoreResult(counter) }>
             Store Result
         </button>
 
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch) => ({
     onDecrementCounter: () => dispatch(counterActions.decrement()),
     onAddCounter: () => dispatch(counterActions.add(5)),
     onSubtractCounter: () => dispatch(counterActions.subtract(5)),
-    onStoreResult: (result) => dispatch(resultsActions.storeResult(result)),
+    onStartStoreResult: (result) => dispatch(resultsActions.startStoreResult(result)),
     onDeleteResult: (id) => dispatch(resultsActions.deleteResult(id))
 });
 
