@@ -1,8 +1,7 @@
-import * as CounterTypes from '../types/types';
+import * as CounterTypes from '../types/counter';
 
 const initialState = {
-    counter: 0,
-    results: []
+    counter: 0
 };
 
 export default function(state = initialState, action) {
@@ -31,24 +30,6 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 counter: state.counter - action.payload.value
-            };
-
-        case CounterTypes.STORE_RESULT:
-            return {
-                ...state,
-                results: [
-                    ...state.results,
-                    {
-                        id: new Date().getTime(),
-                        value: state.counter
-                    }
-                ]
-            };
-
-        case CounterTypes.DELETE_RESULT:
-            return {
-                ...state,
-                results: state.results.filter(({ id }) => id !== action.payload.id)
             };
 
         default:

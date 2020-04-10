@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
-import * as counterActions from '../../store/actions/actions';
+import * as counterActions from '../../store/actions/counter';
+import * as resultsActions from '../../store/actions/results';
 
 const Counter = ({ 
     counter,
@@ -26,7 +27,7 @@ const Counter = ({
 
         <hr />
 
-        <button onClick={ onStoreResult }>
+        <button onClick={ () => onStoreResult(counter) }>
             Store Result
         </button>
 
@@ -40,8 +41,8 @@ const Counter = ({
 );
 
 const mapStateToProps = (state) => ({
-    counter: state.counter,
-    results: state.results
+    counter: state.counter.counter,
+    results: state.results.results
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -49,8 +50,8 @@ const mapDispatchToProps = (dispatch) => ({
     onDecrementCounter: () => dispatch(counterActions.decrement()),
     onAddCounter: () => dispatch(counterActions.add(5)),
     onSubtractCounter: () => dispatch(counterActions.subtract(5)),
-    onStoreResult: () => dispatch(counterActions.storeResult()),
-    onDeleteResult: (id) => dispatch(counterActions.deleteResult(id))
+    onStoreResult: (result) => dispatch(resultsActions.storeResult(result)),
+    onDeleteResult: (id) => dispatch(resultsActions.deleteResult(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

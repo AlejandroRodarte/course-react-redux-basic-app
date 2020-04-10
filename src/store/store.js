@@ -1,5 +1,11 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-import reducer from './reducers/reducer';
+import counterReducer from './reducers/counter';
+import resultsReducer from './reducers/results';
 
-export default createStore(reducer);
+const rootReducer = combineReducers({
+    counter: counterReducer,
+    results: resultsReducer
+});
+
+export default createStore(rootReducer);

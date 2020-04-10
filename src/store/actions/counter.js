@@ -1,4 +1,4 @@
-import * as CounterTypes from '../types/types';
+import * as CounterTypes from '../types/counter';
 
 export const increment = () => ({
     type: CounterTypes.INCREMENT
@@ -22,13 +22,3 @@ export const subtract = (value) => ({
     }
 });
 
-export const storeResult = () => ({
-    type: CounterTypes.STORE_RESULT
-});
-
-export const deleteResult = (id) => ({
-    type: CounterTypes.DELETE_RESULT,
-    payload: {
-        id
-    }
-});
