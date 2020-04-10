@@ -32,7 +32,7 @@ const Counter = ({
 
         <ul>
             {
-                results.map(({ id, value }) => <li key={ id } onClick={ onDeleteResult }>{ value }</li>)
+                results.map(({ id, value }) => <li key={ id } onClick={ () => onDeleteResult(id) }>{ value }</li>)
             }
         </ul>
 
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch) => ({
     onAddCounter: () => dispatch(counterActions.add(5)),
     onSubtractCounter: () => dispatch(counterActions.subtract(5)),
     onStoreResult: () => dispatch(counterActions.storeResult()),
-    onDeleteResult: () => dispatch(counterActions.deleteResult())
+    onDeleteResult: (id) => dispatch(counterActions.deleteResult(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

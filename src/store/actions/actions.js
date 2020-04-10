@@ -26,6 +26,9 @@ export const storeResult = () => ({
     type: CounterTypes.STORE_RESULT
 });
 
-export const deleteResult = () => ({
-    type: CounterTypes.DELETE_RESULT
+export const deleteResult = (id) => ({
+    type: CounterTypes.DELETE_RESULT,
+    payload: {
+        id
+    }
 });

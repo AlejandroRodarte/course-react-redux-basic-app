@@ -45,6 +45,12 @@ export default function(state = initialState, action) {
                 ]
             };
 
+        case CounterTypes.DELETE_RESULT:
+            return {
+                ...state,
+                results: state.results.filter(({ id }) => id !== action.payload.id)
+            };
+
         default:
             return state;
 
