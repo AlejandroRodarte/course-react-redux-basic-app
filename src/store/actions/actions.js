@@ -21,3 +21,11 @@ export const subtract = (value) => ({
         value
     }
 });
+
+export const storeResult = () => ({
+    type: CounterTypes.STORE_RESULT
+});
+
+export const deleteResult = () => ({
+    type: CounterTypes.DELETE_RESULT
+});

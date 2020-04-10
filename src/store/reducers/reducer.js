@@ -1,7 +1,8 @@
 import * as CounterTypes from '../types/types';
 
 const initialState = {
-    counter: 0
+    counter: 0,
+    results: []
 };
 
 export default function(state = initialState, action) {
@@ -30,6 +31,18 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 counter: state.counter - action.payload.value
+            };
+
+        case CounterTypes.STORE_RESULT:
+            return {
+                ...state,
+                results: [
+                    ...state.results,
+                    {
+                        id: new Date().getTime(),
+                        value: state.counter
+                    }
+                ]
             };
 
         default:
